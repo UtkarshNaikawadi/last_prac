@@ -1,0 +1,16 @@
+---
+- name: user creation with random password
+  hosts: all
+  become: true
+  vars_files:
+          - user_list.yml
+  tasks:
+          - name: ensure user is created
+            user:
+                    name: "{{ item.name }}"
+                    uid: "{{ item.uid }}"
+                    password: "{{ lookup('password','password-' + item.name + ' length=6') | password_hash('sha512') }}"
+                    comment: "{{ item.first | capitalize }} {{ item.middle | capitalize }} {{ item.last | capitalize }}"
+                    state: absent
+            loop: "{{ users }}"
+

@@ -1,0 +1,23 @@
+---
+- name: check for right or wrong checksum
+  hosts: localhost
+  become: true
+  gather_facts: false
+  vars_files:
+          - verify_files.yml
+  tasks:
+          - name: gathering checksum
+            stat:
+                    path: "{{ item.name }}"
+            loop: "{{ files }}"
+            register: stat_result
+          - name: finding a Right checksum
+            debug:
+                    msg: "Right Checksum: {{ item.stat.path }}"
+            loop: "{{ stat_result.results }}"
+            when: item.stat.checksum == item.item.checksum
+          - name: findong wrong checksum
+            debug:
+                    msg: "Wrong Checksum: {{ item.stat.path }}"
+            loop: "{{ stat_result.results }}"
+            when: item.stat.checksum != item.item.checksum
