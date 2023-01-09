@@ -1,0 +1,16 @@
+users:
+        - name: potraju
+          first: narendra
+          middle: utkarsh
+          last: modi
+          uid: 2000
+        - name: smit
+          first: smit
+          middle: utkarsh
+          last: anand
+          uid: 2001
+        - name: swapnali
+          first: swap
+          middle: utkarsh
+          last: zore
+          uid: 2002

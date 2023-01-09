@@ -1,0 +1,17 @@
+---
+- name: working with handler
+  hosts: localhost
+  become: true
+  gather_facts: false
+  tasks:
+          - name: copy alias.con to httpd conf location
+            copy:
+                    src: /home/sysadmin/git_repo/last_prac/playbook/alias.conf
+                    dest: /etc/httpd/conf
+            notify: restart httpd service
+  handlers:
+          - name: restart httpd service
+            service:
+                    name: httpd
+                    state: restarted
+                    enabled: true

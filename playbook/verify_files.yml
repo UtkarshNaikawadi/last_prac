@@ -1,0 +1,6 @@
+---
+files:
+        - name: /root/Downloads/ansible-tower-setup-2.0.5.tar.gz
+          checksum: 5f04a61af1284fbae2ff94ee30b22bd5fd0a4363 /root/Downloads/ansible-tower-setup-2.0.5.tar.gz
+        - name: /root/Downloads/ansible-tower-setup-2.0.5.tar.gz
+          checksum: 5f04a61af1284fbae2ff94ee30b22bd5fd0a4363 /root/Downloads/ansible-tower-setup-2.0.5.tar.gz
