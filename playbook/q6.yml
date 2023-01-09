@@ -1,0 +1,7 @@
+---
+- name: cgroup
+  hosts: localhost
+  become: true
+  tasks:
+          - name: cgroup creation
+            shell: cgcreate -a sysadmin:sysadmin -t sysadmin:sysadmin -g cpuacct,memory,pids:utkarsh
